@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.ec.library.models.Borrowing" />
+
+        <variable
+            name="adapter"
+            type="com.ec.library.adapters.BorrowingRecyclerViewAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".uis.MemberActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="@{String.valueOf(item.id)}" />
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_member_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@{item.member.name}" />
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_book_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="12"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@{item.book.name}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@string/borrowingTime"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_borrowing_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="12"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@string/expiryTime"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_expiry_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="12"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@string/returnTime"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_borrowing_item_return_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="12"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_borrowing_item_update"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:onClick="@{(v)->adapter.onUpdateBtnClick(v, item)}"
+                    android:text="@string/update" />
+
+                <Button
+                    android:id="@+id/btn_borrowing_item_delete"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:onClick="@{(v)->adapter.onDeleteBtnClick(v, item)}"
+                    android:text="@string/delete" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

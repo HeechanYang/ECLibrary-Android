@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.ec.library.models.Member" />
+
+        <variable
+            name="adapter"
+            type="com.ec.library.adapters.MemberRecyclerViewAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        tools:context=".uis.MemberActivity">
+
+        <TextView
+            android:id="@+id/txt_member_item_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:text="@{item.id}" />
+
+        <TextView
+            android:id="@+id/txt_member_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="@{item.name}" />
+
+        <TextView
+            android:id="@+id/txt_member_item_contacts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="@{item.contacts}" />
+
+        <Button
+            android:id="@+id/btn_member_item_update"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:onClick="@{(v)->adapter.onUpdateBtnClick(v, item)}"
+            android:text="@string/update" />
+
+        <Button
+            android:id="@+id/btn_member_item_delete"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:onClick="@{(v)->adapter.onDeleteBtnClick(v, item)}"
+            android:text="@string/delete" />
+    </LinearLayout>
+</layout>
